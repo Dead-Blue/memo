@@ -1,19 +1,28 @@
-import React,{PropTypes} from 'react'
+import React,{PropTypes,Component} from 'react'
 import { bindActionCreators} from 'redux'
 import { connect } from 'react-redux'
 import * as Actions from '../actions'
-const App = ({actions})=>(
-    <div>
-        Hello,World!
-    </div>
-)
+import Header from './Header/Header'
+import MainSection from './MainSection/MainSection'
+import Footer from './Footer/Footer'
+class App extends Component {
+    render() {    
+        return (
+            <div>
+                <Header />
+                <MainSection />
+                <Footer />
+            </div>
+        )
+    }
+}
 
 App.protoTypes={
     actions: PropTypes.object.isRequired,
 }
 
 const mapStateToProps = state => ({
-
+    memos:state.memos
 })
 
 const mapDispatchToProps = dispatch => ({
