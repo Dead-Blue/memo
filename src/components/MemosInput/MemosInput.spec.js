@@ -1,12 +1,12 @@
 import React from 'react'
 import TestUtils from 'react-addons-test-utils'
-import MemosAdd from './MemosAdd'
+import MemosInput from './MemosInput'
 
 const setup = propOverrides =>{
     const props = Object.assign({},propOverrides)
 
     const renderer = TestUtils.createRenderer()
-    renderer.render(<MemosAdd {...props} />)
+    renderer.render(<MemosInput {...props} />)
 
     const output = renderer.getRenderOutput()
     return {
@@ -24,7 +24,7 @@ const getTextContent = elem => {
 }
 
 describe('components',()=>{
-    describe('MemosAdd',()=>{
+    describe('MemosInput',()=>{
         it('应当正确渲染',()=>{
             const {output} = setup()
             expect(output.type).toBe('div')

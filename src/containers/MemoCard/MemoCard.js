@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import './MemoCard.css'
-import MemosAdd from '../../components/MemosAdd/MemosAdd'
+import MemosInput from '../../components/MemosInput/MemosInput'
 import MemosList from '../../components/MemosList/MemosList'
 
 class MemoCard extends Component {
@@ -12,7 +12,7 @@ class MemoCard extends Component {
                     <div className="memo-card-title"></div>
                     <div className="memo-card-count"></div>
                 </div>
-                <MemosAdd />
+                <MemosInput />
                 <MemosList />
             </div>
         )
