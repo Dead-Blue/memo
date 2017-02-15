@@ -2,6 +2,7 @@
   "name": "memo",
   "version": "0.1.0",
   "private": true,
+  "description": "一个基于react的备忘录程序",
   "devDependencies": {
     "commander": "^2.9.0",
     "enzyme": "^2.7.1",
