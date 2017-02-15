@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import './MemoCard.css'
-import MemosAdd from '../../compoents/MemosAdd/MemosAdd'
-import MemosList from '../../compoents/MemosList/MemosList'
+import MemosAdd from '../../components/MemosAdd/MemosAdd'
+import MemosList from '../../components/MemosList/MemosList'
 
 class MemoCard extends Component {
     render(){
