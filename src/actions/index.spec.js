@@ -7,4 +7,12 @@ describe('memos actions',()=>{
             type: types.LOAD_MEMOS
         })
     })
+
+    it('addMemo应当创建ADD_MEMO action',()=>{
+        expect(actions.addMemo()).toEqual({
+            type: types.ADD_MEMO
+        })
+    })
+
 })
+

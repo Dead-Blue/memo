@@ -6,11 +6,19 @@ import Header from './Header/Header'
 import MainSection from './MainSection/MainSection'
 import Footer from './Footer/Footer'
 class App extends Component {
-    render() {    
+    
+    componentDidMount(){
+        this.props.actions.loadMemos();
+    }
+    render() {
+        const mainSectionProps={
+            actions:this.props.actions,
+            memos:this.props.memos,
+        }    
         return (
             <div>
                 <Header />
-                <MainSection />
+                <MainSection {...mainSectionProps}/>
                 <Footer />
             </div>
         )

@@ -13,7 +13,7 @@ const configureStore = preloadedState => {
         rootRedcer,
         preloadedState,
         composeEnhancers(
-            applyMiddleware(thunk, createLogger),
+            applyMiddleware(thunk, createLogger()),
         )
     )
 

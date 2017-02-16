@@ -1,11 +1,22 @@
-import {LOAD_MEMOS} from '../constants/ActionTypes'
+import {LOAD_MEMOS,ADD_MEMO} from '../constants/ActionTypes'
 
-const memos = (state={},action)=>{
+const memos = (state={loading:false,memos:[{title:"TEST",id:0,completed:false}],category:"默认"},action)=>{
     switch (action.type){
         
         case LOAD_MEMOS:
-            return state;
-        
+            return {...state,loading:true}
+        case ADD_MEMO:
+            return {
+                ...state,
+                memos:[
+                {
+                    id:state.memos.reduce((maxId,memo)=>Math.max(memo.id,maxId),-1)+1,
+                    completed: false,
+                    title:action.payload.text,
+                },
+                ...state.memos
+            ]
+            }
         default:
             return state;
     }
