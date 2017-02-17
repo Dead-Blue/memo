@@ -6,9 +6,14 @@ import MemoSearch from '../../components/MemoSearch/MemoSearch';
 import { Card } from 'semantic-ui-react'
 class MemoCard extends Component {
 
+    
 
     render(){
-        const {memos,addMemo} = this.props;
+        const {memos,actions} = this.props;
+        const {addMemo,...rest}=actions;
+        const memoCompleted=memos.filter((memo)=>{
+           return memo.completed===true;
+        })
 
         return (
             <Card>
@@ -20,7 +25,11 @@ class MemoCard extends Component {
                 </div>
                 <MemoSearch />
                 <MemosInput onSave={addMemo} newTodo={true}/>
-                <MemosList memos={memos} />
+                <MemosList memos={memos} {...rest}/>
+
+                </Card.Content>
+                <Card.Content extra>
+                    <div>已完成：{memoCompleted.length}项</div>
                 </Card.Content>
             </Card>
         )

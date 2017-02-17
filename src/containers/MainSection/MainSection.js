@@ -9,7 +9,7 @@ class MainSection extends Component {
         return (
             <div>
             <h3>MainSection</h3>
-            <MemoCard {...memos} {...actions}/>
+            <MemoCard {...memos} actions={actions}/>
             </div>
         )
     }

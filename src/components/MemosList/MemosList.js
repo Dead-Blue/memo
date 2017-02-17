@@ -4,11 +4,11 @@ import {List} from 'semantic-ui-react'
 import MemosItem from '../MemosItem/MemosItem'
 class MemosList extends Component {
     render(){
-        const {memos} = this.props;
+        const {memos,...actions} = this.props;
         return (
-            <List>
+            <List celled size={'big'}>
                 {memos.map(memo=>
-                    <MemosItem memo={memo} key={memo.id}/>
+                    <MemosItem memo={memo} key={memo.id} {...actions}/>
                 )}
             </List>
         )

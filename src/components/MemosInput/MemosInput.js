@@ -6,13 +6,10 @@ const {Field} = Form;
 
 class MemosInput extends Component {
 
-    constructor(props){
-        super(props)
-        this.state={
+    state={
             text:'',
             completed:false,
             id:0
-        }
     }
 
     handleSubmit=e=>{
@@ -40,7 +37,9 @@ class MemosInput extends Component {
     render(){
         return (
             <Field>
-                <Input type='text' 
+                <Input type='text'
+                       size='mini' 
+                       fluid
                        autoFocus="true" 
                        value={this.state.text} 
                        onChange={this.handleChange}
