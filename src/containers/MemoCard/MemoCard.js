@@ -10,7 +10,7 @@ class MemoCard extends Component {
 
     render(){
         const {memos,actions} = this.props;
-        const {addMemo,...rest}=actions;
+        const {addMemo,searchMemo,...rest}=actions;
         const memoCompleted=memos.filter((memo)=>{
            return memo.completed===true;
         })
@@ -23,11 +23,14 @@ class MemoCard extends Component {
                     <div className="memo-card-title"></div>
                     <div className="memo-card-count"></div>
                 </div>
-                <MemoSearch />
+
                 <MemosInput onSave={addMemo} newTodo={true}/>
                 <MemosList memos={memos} {...rest}/>
 
                 </Card.Content>
+                 <Card.Content>
+                    <MemoSearch onSearch={searchMemo}/>                 
+                 </Card.Content>
                 <Card.Content extra>
                     <div>已完成：{memoCompleted.length}项</div>
                 </Card.Content>

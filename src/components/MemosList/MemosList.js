@@ -7,7 +7,7 @@ class MemosList extends Component {
         const {memos,...actions} = this.props;
         return (
             <List celled size={'big'}>
-                {memos.map(memo=>
+                {memos.filter(memo=>memo.show?true:false).map(memo=>
                     <MemosItem memo={memo} key={memo.id} {...actions}/>
                 )}
             </List>

@@ -7,7 +7,7 @@ const {Field} = Form;
 class MemosInput extends Component {
 
     state={
-            text:'',
+            text:this.props.text?this.props.text:'',
             completed:false,
             id:0
     }
@@ -40,7 +40,8 @@ class MemosInput extends Component {
                 <Input type='text'
                        size='mini' 
                        fluid
-                       autoFocus="true" 
+                       autoFocus="true"
+                       placeholder="请输入..." 
                        value={this.state.text} 
                        onChange={this.handleChange}
                        onBlur={this.handleBlur}

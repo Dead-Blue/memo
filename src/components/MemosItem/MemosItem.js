@@ -2,6 +2,7 @@ import React,{Component} from 'react'
 import './MemosItem.css'
 import {List,Checkbox,Icon} from 'semantic-ui-react';
 import classNames from 'classnames';
+import MemosInput from '../MemosInput/MemosInput';
 
 const {Item,Content} = List;
 class MemosItem extends Component {
@@ -20,6 +21,20 @@ class MemosItem extends Component {
         deleteMemo(memo.id);
     }
 
+    handleEditClick=(e)=>{
+        this.setState({
+            editing:true
+        })
+    }
+
+    handleEdit=(text)=>{
+         const {editMemo,memo} = this.props;
+         editMemo(text,memo.id);
+         this.setState({
+            editing:false
+        })
+    }
+
     render(){
         const {memo}=this.props;
         const {title,id} = memo;
@@ -27,17 +42,26 @@ class MemosItem extends Component {
             "memo-completed":memo.completed,
             "memo-editing":this.state.editing,
         })
-        return (
-            <Item key={id} >
+        if(this.state.editing === true){
+           
+            const MemosInputProps={
+             newTodo:false,
+             onSave:this.handleEdit
+            }
+            return (<Item key={id} >
+                    <MemosInput {...MemosInputProps} text={title}/>
+            </Item>)
+        } else {
+           return (<Item key={id} >
                     <Content  floated='left'>
                         <Checkbox onChange={this.handleToggleComplete}/>
                     </Content>
-                     <span className={itemClassName}>{title}</span>
+                     <span className={itemClassName} onClick={this.handleEditClick}>{title}</span>
                    <Content  floated='right'>
                         <Icon link name='close' onClick={this.handleDelete}/>
                     </Content>
-            </Item>
-        )
+            </Item>)
+        }
     }
 }
 export default MemosItem;
