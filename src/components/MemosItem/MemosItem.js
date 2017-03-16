@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import './MemosItem.css'
-import {List,Checkbox,Icon} from 'semantic-ui-react';
+import {List,Checkbox,Icon,Divider} from 'semantic-ui-react';
 import classNames from 'classnames';
 import MemosInput from '../MemosInput/MemosInput';
 
@@ -49,10 +49,11 @@ class MemosItem extends Component {
              onSave:this.handleEdit
             }
             return (<Item key={id} >
-                    <MemosInput {...MemosInputProps} text={title}/>
-            </Item>)
+                        <MemosInput {...MemosInputProps} text={title}/>
+                        <Divider />
+                    </Item>)
         } else {
-           return (<Item key={id} >
+           return (<Item key={id} > 
                     <Content  floated='left'>
                         <Checkbox onChange={this.handleToggleComplete}/>
                     </Content>
@@ -60,7 +61,8 @@ class MemosItem extends Component {
                    <Content  floated='right'>
                         <Icon link name='close' onClick={this.handleDelete}/>
                     </Content>
-            </Item>)
+                    <Divider />
+                </Item>)
         }
     }
 }

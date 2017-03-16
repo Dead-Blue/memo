@@ -10,3 +10,9 @@ export const TOGGLE_COMPLETE = 'TOGGLE_COMPLETE';
 
 export const SEARCH_MEMO = 'SEARCH_MEMO';
 
+export const FILTER_COMPLETED = 'FILTER_COMPLETE';
+
+export const FILTER_UNCOMPLETED = 'FILTER_UNCOMPLETE';
+
+export const FILTER_ALL = 'FILTER_ALL'
+

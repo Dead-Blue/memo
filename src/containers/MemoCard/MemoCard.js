@@ -1,16 +1,23 @@
-import React,{Component} from 'react'
+import React, {
+    Component
+} from 'react'
 import './MemoCard.css'
 import MemosInput from '../../components/MemosInput/MemosInput'
 import MemosList from '../../components/MemosList/MemosList'
 import MemoSearch from '../../components/MemoSearch/MemoSearch';
-import { Card } from 'semantic-ui-react'
+import {
+    Card,
+    Button,
+    Label,
+    Divider,
+} from 'semantic-ui-react'
 class MemoCard extends Component {
 
     
 
     render(){
         const {memos,actions} = this.props;
-        const {addMemo,searchMemo,...rest}=actions;
+        const {addMemo,searchMemo,filterCompleted,filterUncompleted,filterAll,...rest}=actions;
         const memoCompleted=memos.filter((memo)=>{
            return memo.completed===true;
         })
@@ -18,21 +25,29 @@ class MemoCard extends Component {
         return (
             <Card>
                 <Card.Content>
-                <h3>MemoCard</h3>
+                <h1>提醒</h1>
+                <Label as='span' color='teal' ribbon="right">已完成：{memoCompleted.length}项</Label>
+                <Divider />
+                <MemoSearch onSearch={searchMemo}/> 
+                <Divider />
                 <div className="memo-card-header">
                     <div className="memo-card-title"></div>
                     <div className="memo-card-count"></div>
                 </div>
 
-                <MemosInput onSave={addMemo} newTodo={true}/>
-                <MemosList memos={memos} {...rest}/>
 
+                <MemosList memos={memos} {...rest}/>
+                <MemosInput onSave={addMemo} newTodo={true}/>
                 </Card.Content>
-                 <Card.Content>
-                    <MemoSearch onSearch={searchMemo}/>                 
-                 </Card.Content>
+                                 
                 <Card.Content extra>
-                    <div>已完成：{memoCompleted.length}项</div>
+                    <Button.Group >
+                            <Button color='blue' onClick={filterUncompleted}>未完成</Button>
+                            <Button color='grey' onClick={filterCompleted}>已完成</Button>
+                            <Button color='green' onClick={filterAll}>全部</Button>
+                        </Button.Group>
+                    
+                        
                 </Card.Content>
             </Card>
         )

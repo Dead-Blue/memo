@@ -1,6 +1,6 @@
-import {LOAD_MEMOS,ADD_MEMO,TOGGLE_COMPLETE,DELETE_MEMO,EDIT_MEMO,SEARCH_MEMO} from '../constants/ActionTypes'
+import {LOAD_MEMOS,ADD_MEMO,TOGGLE_COMPLETE,DELETE_MEMO,EDIT_MEMO,SEARCH_MEMO,FILTER_ALL,FILTER_COMPLETED,FILTER_UNCOMPLETED} from '../constants/ActionTypes'
 
-const memos = (state={loading:false,memos:[{title:"TEST",id:0,completed:false,show:true}],category:"默认"},action)=>{
+const memos = (state={loading:false,memos:[{title:"TEST",id:0,completed:false,show:true}],filter:FILTER_ALL,category:"默认"},action)=>{
     switch (action.type){
         
         case LOAD_MEMOS:
@@ -9,13 +9,13 @@ const memos = (state={loading:false,memos:[{title:"TEST",id:0,completed:false,sh
             return {
                 ...state,
                 memos:[
+                ...state.memos,
                 {
                     id:state.memos.reduce((maxId,memo)=>Math.max(memo.id,maxId),-1)+1,
                     completed: false,
                     title:action.payload.text,
-                    show:true
-                },
-                ...state.memos
+                    show:state.filter===FILTER_COMPLETED?false:true
+                }
             ]
         }
         case EDIT_MEMO:
@@ -39,9 +39,12 @@ const memos = (state={loading:false,memos:[{title:"TEST",id:0,completed:false,sh
                         return {
                             ...x,
                             completed:!x.completed,
+                            show:state.filter===FILTER_ALL?true:!state.filter,
                         }
                     }
-                    return x;
+                    return {
+                        ...x,
+                    };
                 })
             }
         case DELETE_MEMO:
@@ -64,6 +67,57 @@ const memos = (state={loading:false,memos:[{title:"TEST",id:0,completed:false,sh
                         show:true
                     };
                 })
+            }
+        case FILTER_COMPLETED:
+            return{
+                ...state,
+                memos:state.memos.map(x=>{
+                    if(x.completed===true){
+                        return{
+                            ...x,
+                            show:true
+                        }
+                    }
+                    return {
+                        ...x,
+                        show:false
+                    };
+                }),
+                filter:FILTER_COMPLETED           
+            }
+        case FILTER_UNCOMPLETED:
+            return{
+                ...state,
+                memos:state.memos.map(x=>{
+                    if(x.completed===false){
+                        return{
+                            ...x,
+                            show:true
+                        }
+                    }
+                    return {
+                        ...x,
+                        show:false
+                    };
+                }),
+                filter:FILTER_UNCOMPLETED
+            }
+        case FILTER_ALL:
+            return{
+                ...state,
+                memos:state.memos.map(x=>{
+                    if(!!x){
+                        return{
+                            ...x,
+                            show:true
+                        }
+                    }
+                    return {
+                        ...x,
+                        show:false
+                    };
+                }),
+                filter:FILTER_ALL
             }
         default:
             return state;

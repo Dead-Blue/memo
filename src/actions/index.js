@@ -11,3 +11,9 @@ export const toggleComplete = (id) =>({type:types.TOGGLE_COMPLETE,payload:{id:id
 export const deleteMemo = (id) =>({type:types.DELETE_MEMO,payload:{id:id}})
 
 export const searchMemo = (keyword)=>({type:types.SEARCH_MEMO,payload:{keyword:keyword}})
+
+export const filterCompleted = ()=>({type:types.FILTER_COMPLETED})
+
+export const filterUncompleted = ()=>({type:types.FILTER_UNCOMPLETED})
+
+export const filterAll = ()=>({type:types.FILTER_ALL})
