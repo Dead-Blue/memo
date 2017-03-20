@@ -5,6 +5,7 @@ import * as Actions from '../actions'
 import Header from './Header/Header'
 import MainSection from './MainSection/MainSection'
 import Footer from './Footer/Footer'
+import './App.css';
 class App extends Component {
     
     componentDidMount(){
@@ -16,7 +17,7 @@ class App extends Component {
             memos:this.props.memos,
         }    
         return (
-            <div>
+            <div className="memo-container">
                 <Header />
                 <MainSection {...mainSectionProps}/>
                 <Footer />

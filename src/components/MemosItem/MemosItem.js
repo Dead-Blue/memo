@@ -1,8 +1,9 @@
 import React,{Component} from 'react'
 import './MemosItem.css'
-import {List,Checkbox,Icon,Divider} from 'semantic-ui-react';
+import {List,Checkbox,Divider} from 'semantic-ui-react';
 import classNames from 'classnames';
 import MemosInput from '../MemosInput/MemosInput';
+import MemoDetail from '../MemoDetail/MemoDetail';
 
 const {Item,Content} = List;
 class MemosItem extends Component {
@@ -53,13 +54,13 @@ class MemosItem extends Component {
                         <Divider />
                     </Item>)
         } else {
-           return (<Item key={id} > 
+           return (<Item key={id}> 
                     <Content  floated='left'>
                         <Checkbox onChange={this.handleToggleComplete}/>
                     </Content>
                      <span className={itemClassName} onClick={this.handleEditClick}>{title}</span>
                    <Content  floated='right'>
-                        <Icon link name='close' onClick={this.handleDelete}/>
+                        <MemoDetail handleDelete={this.handleDelete}/>
                     </Content>
                     <Divider />
                 </Item>)

@@ -23,7 +23,7 @@ class MemoCard extends Component {
         })
 
         return (
-            <Card>
+            <Card fluid>
                 <Card.Content>
                 <h1>提醒</h1>
                 <Label as='span' color='teal' ribbon="right">已完成：{memoCompleted.length}项</Label>
