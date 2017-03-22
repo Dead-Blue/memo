@@ -3,7 +3,7 @@ import './Header.css'
 class Header extends Component {
     render(){
         return (
-            <div>Header</div>
+            <div className="memo-header">Header</div>
         )
     }
 }

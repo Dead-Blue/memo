@@ -41,7 +41,7 @@ class MemoCard extends Component {
                 </Card.Content>
                                  
                 <Card.Content extra>
-                    <Button.Group >
+                    <Button.Group widths='3'>
                             <Button color='blue' onClick={filterUncompleted}>未完成</Button>
                             <Button color='grey' onClick={filterCompleted}>已完成</Button>
                             <Button color='green' onClick={filterAll}>全部</Button>

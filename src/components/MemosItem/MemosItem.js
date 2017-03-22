@@ -22,6 +22,11 @@ class MemosItem extends Component {
         deleteMemo(memo.id);
     }
 
+    handleEditDetail=(id,memoDetail)=>{
+        const {editMemoDetail}=this.props;
+        editMemoDetail(id,memoDetail);
+    }
+
     handleEditClick=(e)=>{
         this.setState({
             editing:true
@@ -60,7 +65,7 @@ class MemosItem extends Component {
                     </Content>
                      <span className={itemClassName} onClick={this.handleEditClick}>{title}</span>
                    <Content  floated='right'>
-                        <MemoDetail handleDelete={this.handleDelete}/>
+                        <MemoDetail handleDelete={this.handleDelete} handleEditDetail={this.handleEditDetail} memo={memo}/>
                     </Content>
                     <Divider />
                 </Item>)

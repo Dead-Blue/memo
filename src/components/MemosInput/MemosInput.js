@@ -16,6 +16,8 @@ class MemosInput extends Component {
         const {onSave,newTodo}=this.props;
         const text = e.target.value.trim();
         if(e.which ===13){
+            if(text==="")
+                return;
             onSave(text)
             if(newTodo){
                 this.setState({text:''})

@@ -1,6 +1,20 @@
-import {LOAD_MEMOS,ADD_MEMO,TOGGLE_COMPLETE,DELETE_MEMO,EDIT_MEMO,SEARCH_MEMO,FILTER_ALL,FILTER_COMPLETED,FILTER_UNCOMPLETED} from '../constants/ActionTypes'
-
-const memos = (state={loading:false,memos:[{title:"TEST",id:0,completed:false,show:true}],filter:FILTER_ALL,category:"默认"},action)=>{
+import {LOAD_MEMOS,ADD_MEMO,TOGGLE_COMPLETE,DELETE_MEMO,EDIT_MEMO,EDIT_MEMODETAIL,SEARCH_MEMO,FILTER_ALL,FILTER_COMPLETED,FILTER_UNCOMPLETED} from '../constants/ActionTypes'
+const initMemoState = {
+    loading:false,
+    memos:[
+            {
+                title:"TEST",
+                id:0,
+                completed:false,
+                list:"默认",
+                priority:"none",
+                remark:"",
+                show:true
+            }
+        ],
+        filter:FILTER_ALL,
+    }
+const memos = (state=initMemoState,action)=>{
     switch (action.type){
         
         case LOAD_MEMOS:
@@ -14,7 +28,10 @@ const memos = (state={loading:false,memos:[{title:"TEST",id:0,completed:false,sh
                     id:state.memos.reduce((maxId,memo)=>Math.max(memo.id,maxId),-1)+1,
                     completed: false,
                     title:action.payload.text,
-                    show:state.filter===FILTER_COMPLETED?false:true
+                    show:state.filter===FILTER_COMPLETED?false:true,
+                    list:"默认",
+                    priority:"none",
+                    remark:"",
                 }
             ]
         }
@@ -26,6 +43,21 @@ const memos = (state={loading:false,memos:[{title:"TEST",id:0,completed:false,sh
                         return {
                             ...x,
                             title:action.payload.text
+                        }
+                    }
+                    return x;
+                })
+            }
+        case EDIT_MEMODETAIL:
+            return {
+                ...state,
+                memos:state.memos.map(x=>{
+                    if(x.id===action.payload.id){
+                        return {
+                            ...x,
+                            list:action.payload.memoDetail.list,
+                            priority:action.payload.memoDetail.priority,
+                            remark:action.payload.memoDetail.remark,
                         }
                     }
                     return x;

@@ -6,6 +6,8 @@ export const addMemo = (text)=>({type:types.ADD_MEMO,payload:{text:text}})
 
 export const editMemo = (text,id)=>({type:types.EDIT_MEMO,payload:{text:text,id:id}})
 
+export const editMemoDetail = (id,memoDetail)=>({type:types.EDIT_MEMODETAIL,payload:{id:id,memoDetail:memoDetail}})
+
 export const toggleComplete = (id) =>({type:types.TOGGLE_COMPLETE,payload:{id:id}})
 
 export const deleteMemo = (id) =>({type:types.DELETE_MEMO,payload:{id:id}})
