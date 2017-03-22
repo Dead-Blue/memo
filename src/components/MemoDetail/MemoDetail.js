@@ -25,6 +25,11 @@ class MemoDetail extends Component {
         this.setState({ isOpen: true })
     }
 
+    handleClose = () => {
+        this.setState({ isOpen: false })
+        this.handleSubmitMemoDetailChange();
+    }
+
     togglePopUp = () => {
         this.setState({ isOpen: !this.state.isOpen })
     }
@@ -53,7 +58,7 @@ class MemoDetail extends Component {
             ];
         const {handleDelete} = this.props;
         return (
-            <Popup wide closeOnEscape={true} positioning='left center' open={this.state.isOpen} onOpen={this.handleOpen} trigger={<Button basic compact className="memo-button-detail" onClick={this.togglePopUp}><Icon link name='info circle'/>详细信息</Button>} on='click'>
+            <Popup wide positioning='left center' open={this.state.isOpen} onOpen={this.handleOpen} onClose={this.handleClose} trigger={<Button basic compact className="memo-button-detail" onClick={this.togglePopUp}><Icon link name='info circle'/>详细信息</Button>} on='click'>
                 <Card>
                     <Card.Content header='详细信息' />
                     <Card.Content>
