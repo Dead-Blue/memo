@@ -1,8 +1,14 @@
-import React,{Component} from 'react'
+import React,{Component,PropTypes} from 'react'
 import {Icon,Button,Popup,Card,Dropdown,TextArea,Grid} from 'semantic-ui-react';
 import './MemoDetail.css'
 class MemoDetail extends Component {
     
+    static propTypes = {
+        memo:PropTypes.object.isRequired,
+        handleEditDetail: PropTypes.func.isRequired,
+        handleDelete: PropTypes.func.isRequired,
+    }
+
     state = {
         priority: this.props.memo.priority,
         list:this.props.memo.list,

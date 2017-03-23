@@ -1,30 +1,25 @@
 import React from 'react'
 import TestUtils from 'react-addons-test-utils'
-import MemoSearch from './MemoSearch'
-import {Input} from 'semantic-ui-react'
-
+import Header from './Header';
 const setup = propOverrides =>{
-    const props = Object.assign({
-        onSearch:jest.fn()
-    },propOverrides)
+    const props = Object.assign({},propOverrides)
 
     const renderer = TestUtils.createRenderer()
-    renderer.render(<MemoSearch {...props} />)
+    renderer.render(<Header {...props} />)
 
     const output = renderer.getRenderOutput()
     return {
         props:props,
         output:output,
-        renderer:renderer,
+        renderer:renderer
     }
 }
 
-
-describe('components',()=>{
-    describe('MemoSearch',()=>{
+describe('container',()=>{
+    describe('Header',()=>{
         it('应当正确渲染',()=>{
             const {output} = setup()
-            expect(output.type).toBe(Input)
+            expect(output.type).toBe('header')
         })
     })
 })

@@ -1,19 +1,24 @@
 import React, {
-    Component
-} from 'react'
-import './MemoCard.css'
-import MemosInput from '../../components/MemosInput/MemosInput'
-import MemosList from '../../components/MemosList/MemosList'
+    Component,
+    PropTypes,
+} from 'react';
+import './MemoCard.css';
+import MemosInput from '../../components/MemosInput/MemosInput';
+import MemosList from '../../components/MemosList/MemosList';
 import MemoSearch from '../../components/MemoSearch/MemoSearch';
 import {
     Card,
     Button,
     Label,
     Divider,
-} from 'semantic-ui-react'
+} from 'semantic-ui-react';
+
 class MemoCard extends Component {
 
-    
+    static propTypes = {
+        memos: PropTypes.array.isRequired,
+        actions:PropTypes.object.isRequired
+    }
 
     render(){
         const {memos,actions} = this.props;
@@ -36,7 +41,7 @@ class MemoCard extends Component {
                 </div>
 
 
-                <MemosList memos={memos} {...rest}/>
+                <MemosList memos={memos} actions={rest}/>
                 <MemosInput onSave={addMemo} newTodo={true}/>
                 </Card.Content>
                                  

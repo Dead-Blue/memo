@@ -1,9 +1,24 @@
 import React from 'react'
 import TestUtils from 'react-addons-test-utils'
 import MemosItem from './MemosItem'
+import {List} from 'semantic-ui-react';
 
 const setup = propOverrides =>{
-    const props = Object.assign({},propOverrides)
+    const props = Object.assign({
+        memo: {
+                title:"TEST",
+                id:0,
+                completed:false,
+                list:"默认",
+                priority:"none",
+                remark:"",
+                show:true
+        },
+        toggleComplete: jest.fn(),
+        editMemo: jest.fn(),
+        deleteMemo:jest.fn(),
+        editMemoDetail:jest.fn(),
+    },propOverrides)
 
     const renderer = TestUtils.createRenderer()
     renderer.render(<MemosItem {...props} />)
@@ -12,22 +27,16 @@ const setup = propOverrides =>{
     return {
         props:props,
         output:output,
+        renderer:renderer,
     }
 }
 
-const getTextContent = elem => {
-    const children = Array.isArray(elem.props.children)?
-    elem.props.children : [elem.props.children]
-
-    return children.reduce((out,child)=>
-    out+(child.props?getTextContent(child):child),'')
-}
 
 describe('components',()=>{
     describe('MemosItem',()=>{
         it('应当正确渲染',()=>{
             const {output} = setup()
-            expect(output.type).toBe('div')
+            expect(output.type).toBe(List.Item)
         })
     })
 })

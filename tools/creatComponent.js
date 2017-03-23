@@ -47,14 +47,6 @@ const setup = propOverrides =>{
     }
 }
 
-const getTextContent = elem => {
-    const children = Array.isArray(elem.props.children)?
-    elem.props.children : [elem.props.children]
-
-    return children.reduce((out,child)=>
-    out+(child.props?getTextContent(child):child),'')
-}
-
 describe('components',()=>{
     describe('${componentName}',()=>{
         it('应当正确渲染',()=>{

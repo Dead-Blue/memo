@@ -1,10 +1,13 @@
-import React,{Component} from 'react'
+import React,{Component,PropTypes} from 'react'
 import './MemosInput.css'
-import {Form,Input} from 'semantic-ui-react'
-
-const {Field} = Form;
+import {Input} from 'semantic-ui-react'
 
 class MemosInput extends Component {
+
+    static propTypes = {
+        onSave: PropTypes.func.isRequired,
+        newTodo: PropTypes.bool.isRequired,
+    }
 
     state={
             text:this.props.text?this.props.text:'',
@@ -38,7 +41,6 @@ class MemosInput extends Component {
 
     render(){
         return (
-            <Field>
                 <Input type='text'
                        size='mini' 
                        fluid
@@ -48,7 +50,6 @@ class MemosInput extends Component {
                        onChange={this.handleChange}
                        onBlur={this.handleBlur}
                        onKeyDown={this.handleSubmit}/>
-            </Field>
         )
     }
 }
