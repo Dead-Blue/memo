@@ -11,7 +11,7 @@ module.exports = function(componentName) {
 }
 
 function createComponentCss(componentName){
-     fse.outputFileSync(path.resolve(__dirname,'..','src','components',componentName,componentName+'.css'),'')
+     fse.outputFileSync(path.resolve(__dirname,'..','src','components',componentName,componentName+'.scss'),'')
 }
 
 function createComponentJS(componentName){
