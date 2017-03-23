@@ -1,4 +1,6 @@
-# 一个基于React的备忘录程序
+# 一个基于React的备忘录程序 
+
+[![Build Status](https://travis-ci.org/Dead-Blue/memo.svg?branch=master)](https://travis-ci.org/Dead-Blue/memo)
 
 ## 简介
 
