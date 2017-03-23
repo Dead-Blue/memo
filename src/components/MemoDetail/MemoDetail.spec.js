@@ -1,9 +1,21 @@
 import React from 'react'
 import TestUtils from 'react-addons-test-utils'
 import MemoDetail from './MemoDetail'
-
+import {Popup} from 'semantic-ui-react';
 const setup = propOverrides =>{
-    const props = Object.assign({},propOverrides)
+    const props = Object.assign({
+        memo:{
+                title:"TEST",
+                id:0,
+                completed:false,
+                list:"默认",
+                priority:"none",
+                remark:"",
+                show:true
+        },
+        handleEditDetail:jest.fn(),
+        handleDelete:jest.fn(),
+    },propOverrides)
 
     const renderer = TestUtils.createRenderer()
     renderer.render(<MemoDetail {...props} />)
@@ -12,22 +24,15 @@ const setup = propOverrides =>{
     return {
         props:props,
         output:output,
+        renderer:renderer
     }
-}
-
-const getTextContent = elem => {
-    const children = Array.isArray(elem.props.children)?
-    elem.props.children : [elem.props.children]
-
-    return children.reduce((out,child)=>
-    out+(child.props?getTextContent(child):child),'')
 }
 
 describe('components',()=>{
     describe('MemoDetail',()=>{
         it('应当正确渲染',()=>{
             const {output} = setup()
-            expect(output.type).toBe('div')
+            expect(output.type).toBe(Popup)
         })
     })
 })

@@ -1,10 +1,12 @@
-import React,{Component} from 'react'
+import React,{Component,PropTypes} from 'react'
 import './MemoSearch.css'
-import {Form,Input} from 'semantic-ui-react'
-
-const {Field} = Form;
+import {Input} from 'semantic-ui-react'
 
 class MemoSearch extends Component {
+
+    static propTypes = {
+        onSearch: PropTypes.func.isRequired,
+    }
 
     state={
             text:'',
@@ -21,7 +23,6 @@ class MemoSearch extends Component {
 
     render(){
         return (
-            <Field>
                 <Input type='text'
                        size='mini' 
                        fluid
@@ -30,7 +31,6 @@ class MemoSearch extends Component {
                        placeholder="搜索..." 
                        value={this.state.text} 
                        onChange={this.handleChange}/>
-            </Field>
         )
     }
 }

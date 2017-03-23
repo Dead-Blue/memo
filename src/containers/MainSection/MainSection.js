@@ -1,15 +1,20 @@
-import React,{Component} from 'react'
+import React,{Component,PropTypes} from 'react'
 import './MainSection.css'
 import MemoCard from '../MemoCard/MemoCard'
 
 class MainSection extends Component {
     
+    static propTypes = {
+        memos: PropTypes.object.isRequired,
+        actions:PropTypes.object.isRequired
+    }
+
     render(){
         const {memos,actions} = this.props;
         return (
-            <div className="memo-mainsection">
+            <section  className="memo-mainsection">
                 <MemoCard {...memos} actions={actions}/>
-            </div>
+            </section>
         )
     }
 }

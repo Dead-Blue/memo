@@ -11,7 +11,7 @@ module.exports = function(componentName) {
 }
 
 function createComponentCss(componentName){
-     fse.outputFileSync(path.resolve(__dirname,'..','src','components',componentName,componentName+'.css'),'')
+     fse.outputFileSync(path.resolve(__dirname,'..','src','components',componentName,componentName+'.scss'),'')
 }
 
 function createComponentJS(componentName){
@@ -45,14 +45,6 @@ const setup = propOverrides =>{
         props:props,
         output:output,
     }
-}
-
-const getTextContent = elem => {
-    const children = Array.isArray(elem.props.children)?
-    elem.props.children : [elem.props.children]
-
-    return children.reduce((out,child)=>
-    out+(child.props?getTextContent(child):child),'')
 }
 
 describe('components',()=>{

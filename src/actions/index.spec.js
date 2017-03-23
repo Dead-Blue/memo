@@ -9,8 +9,11 @@ describe('memos actions',()=>{
     })
 
     it('addMemo应当创建ADD_MEMO action',()=>{
-        expect(actions.addMemo()).toEqual({
-            type: types.ADD_MEMO
+        expect(actions.addMemo("test")).toEqual({
+            type:types.ADD_MEMO,
+            payload:{
+                text:"test"
+            }
         })
     })
 

@@ -1,4 +1,4 @@
-import React,{Component} from 'react'
+import React,{Component,PropTypes} from 'react'
 import './MemosItem.css'
 import {List,Checkbox,Divider} from 'semantic-ui-react';
 import classNames from 'classnames';
@@ -8,6 +8,14 @@ import MemoDetail from '../MemoDetail/MemoDetail';
 const {Item,Content} = List;
 class MemosItem extends Component {
 
+    static propTypes = {
+        memo: PropTypes.object.isRequired,
+        toggleComplete: PropTypes.func.isRequired,
+        editMemo: PropTypes.func.isRequired,
+        deleteMemo:PropTypes.func.isRequired,
+        editMemoDetail:PropTypes.func.isRequired,
+    }
+    
     state = {
         editing: false
     }
@@ -72,4 +80,6 @@ class MemosItem extends Component {
         }
     }
 }
+
+
 export default MemosItem;
