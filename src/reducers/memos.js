@@ -1,17 +1,7 @@
 import {LOAD_MEMOS,ADD_MEMO,TOGGLE_COMPLETE,DELETE_MEMO,EDIT_MEMO,EDIT_MEMODETAIL,SEARCH_MEMO,FILTER_ALL,FILTER_COMPLETED,FILTER_UNCOMPLETED} from '../constants/ActionTypes'
 const initMemoState = {
     loading:false,
-    memos:[
-            {
-                title:"TEST",
-                id:0,
-                completed:false,
-                list:"默认",
-                priority:"none",
-                remark:"",
-                show:true
-            }
-        ],
+    memos:[],
         filter:FILTER_ALL,
     }
 const memos = (state=initMemoState,action)=>{
