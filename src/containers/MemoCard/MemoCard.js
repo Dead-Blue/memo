@@ -20,6 +20,12 @@ class MemoCard extends Component {
         actions:PropTypes.object.isRequired
     }
 
+    handleSaveMemos=()=>{
+        const {memos,actions}=this.props;
+        const {saveMemos} = actions;
+        saveMemos(memos);
+    }
+
     render(){
         const {memos,actions} = this.props;
         const {addMemo,searchMemo,filterCompleted,filterUncompleted,filterAll,...rest}=actions;
@@ -29,6 +35,7 @@ class MemoCard extends Component {
 
         return (
             <Card fluid>
+
                 <Card.Content>
                 <h1>提醒</h1>
                 <Label as='span' color='teal' ribbon="right">已完成：{memoCompleted.length}项</Label>
@@ -39,8 +46,6 @@ class MemoCard extends Component {
                     <div className="memo-card-title"></div>
                     <div className="memo-card-count"></div>
                 </div>
-
-
                 <MemosList memos={memos} actions={rest}/>
                 <MemosInput onSave={addMemo} newTodo={true}/>
                 </Card.Content>
@@ -50,9 +55,9 @@ class MemoCard extends Component {
                             <Button color='blue' onClick={filterUncompleted}>未完成</Button>
                             <Button color='grey' onClick={filterCompleted}>已完成</Button>
                             <Button color='green' onClick={filterAll}>全部</Button>
-                        </Button.Group>
-                    
-                        
+                    </Button.Group>
+                    <Divider />
+                    <Button color='orange' fluid onClick={this.handleSaveMemos}>保存备忘录</Button>
                 </Card.Content>
             </Card>
         )

@@ -1,5 +1,11 @@
 export const LOAD_MEMOS = 'LOAD_MEMOS';
 
+export const LOADING_MEMOS = 'LOADING_MEMOS';
+
+export const SAVEING_MEMOS = 'SAVEING_MEMOS';
+
+export const SAVE_MEMOS = 'SAVE_MEMOS';
+
 export const ADD_MEMO = 'ADD_MEMO';
 
 export const EDIT_MEMO = "EDIT_MEMO";
@@ -17,4 +23,13 @@ export const FILTER_COMPLETED = 'FILTER_COMPLETE';
 export const FILTER_UNCOMPLETED = 'FILTER_UNCOMPLETE';
 
 export const FILTER_ALL = 'FILTER_ALL'
+
+export const SUCCESS_LOAD_MEMOS='SUCCESS_LOAD_MEMOS';
+
+export const FAIL_LOAD_MEMOS = 'FAIL_LOAD_MEMOS';
+
+export const SUCCESS_SAVE_MEMOS = 'SUCCESS_SAVE_MEMOS';
+
+export const FAIL_SAVE_MEMOS = 'FAIL_SAVE_MEMOS';
+
 

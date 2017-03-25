@@ -12,11 +12,11 @@ class MemosList extends Component {
     render(){
         const {memos,actions} = this.props;
         return (
-            <List size={'big'}>
-                {memos.filter(memo=>memo.show?true:false).map(memo=>
-                    <MemosItem memo={memo} key={memo.id} {...actions}/>
-                )}
-            </List>
+                <List size={'big'}>
+                    {memos.filter(memo=>memo.show?true:false).map(memo=>
+                        <MemosItem memo={memo} key={memo.id} {...actions}/>
+                    )}
+                </List>
         )
     }
 }

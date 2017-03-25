@@ -2,6 +2,8 @@ import * as types from '../constants/ActionTypes'
 
 export const loadMemos = ()=>({ type:types.LOAD_MEMOS})
 
+export const saveMemos = (memos)=>({ type:types.SAVE_MEMOS,payload:{memos:memos}})
+
 export const addMemo = (text)=>({type:types.ADD_MEMO,payload:{text:text}})
 
 export const editMemo = (text,id)=>({type:types.EDIT_MEMO,payload:{text:text,id:id}})

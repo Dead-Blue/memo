@@ -1,14 +1,50 @@
-import {LOAD_MEMOS,ADD_MEMO,TOGGLE_COMPLETE,DELETE_MEMO,EDIT_MEMO,EDIT_MEMODETAIL,SEARCH_MEMO,FILTER_ALL,FILTER_COMPLETED,FILTER_UNCOMPLETED} from '../constants/ActionTypes'
+import {
+    SUCCESS_SAVE_MEMOS,
+    LOADING_MEMOS,
+    SAVEING_MEMOS,
+    FAIL_SAVE_MEMOS,
+    SUCCESS_LOAD_MEMOS,
+    FAIL_LOAD_MEMOS,
+    ADD_MEMO,
+    TOGGLE_COMPLETE,
+    DELETE_MEMO,
+    EDIT_MEMO,
+    EDIT_MEMODETAIL,
+    SEARCH_MEMO,
+    FILTER_ALL,
+    FILTER_COMPLETED,
+    FILTER_UNCOMPLETED,
+} from '../constants/ActionTypes'
 const initMemoState = {
     loading:false,
+    saving:false,
     memos:[],
-        filter:FILTER_ALL,
+    filter:FILTER_ALL,
     }
 const memos = (state=initMemoState,action)=>{
     switch (action.type){
-        
-        case LOAD_MEMOS:
-            return {...state,loading:true}
+        case LOADING_MEMOS:
+            return {
+                ...state,
+                loading:true
+            }
+        case SUCCESS_LOAD_MEMOS:
+            return {
+                ...state,
+                memos:action.payload.memos,
+                loading:false
+            }
+         case FAIL_LOAD_MEMOS:
+            return {...state,loading:false}
+        case SAVEING_MEMOS:
+            return {...state,saving:true}
+        case SUCCESS_SAVE_MEMOS:
+            return {
+                ...state,
+                saving:false
+            }
+        case FAIL_SAVE_MEMOS:
+            return {...state,saving:false}
         case ADD_MEMO:
             return {
                 ...state,
