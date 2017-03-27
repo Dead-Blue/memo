@@ -13,9 +13,6 @@ before_script:
   - cd client
   - npm install
   - npm run build
-script:
-　- cd client && npm run test
-  - cd ..
-  - npm run ci
+script: cd client && npm run test && cd .. && npm run ci
 after_script:
   - npminstall codecov && codecov
