@@ -15,6 +15,7 @@ before_script:
   - npm run build
 script:
 　- cd client && npm run test
+  - cd ..
   - npm run ci
 after_script:
   - npminstall codecov && codecov
