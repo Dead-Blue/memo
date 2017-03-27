@@ -13,7 +13,13 @@ addons:
 cache:
   directories:
     - node_modules
+    - client/node_modules
 before_script: 
+  - cd client
   - npm install
   - npm run build
-script: npm run test
+  - cd ../server
+  - npm install
+script: 
+　-  cd client && npm run test
+  -  cd server && npm run test
