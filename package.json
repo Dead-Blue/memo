@@ -21,7 +21,7 @@
     "node": ">=6.0.0"
   },
   "scripts": {
-    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "start": "concurrently \"npm run dev\" \"npm run client\"",
     "client":"node start-client.js",
     "server": "node index.js",
     "dev": "egg-bin dev",

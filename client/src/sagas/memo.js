@@ -2,7 +2,7 @@ import { takeLatest, put, call, fork } from 'redux-saga/effects'
 import {saveLocalStorage,loadLocalStorage} from '../services/localStorage';
 import {
     LOADING_MEMOS,
-    SAVEING_MEMOS,
+    SAVING_MEMOS,
     SUCCESS_SAVE_MEMOS,
     FAIL_SAVE_MEMOS,
     SUCCESS_LOAD_MEMOS,
@@ -13,7 +13,7 @@ import {
 
 function* saveMemosToLocalStorage(action){
     try{
-        yield put({type:SAVEING_MEMOS});
+        yield put({type:SAVING_MEMOS});
         yield call(saveLocalStorage,"memos",action.payload.memos);
         yield put({type:SUCCESS_SAVE_MEMOS});
     } catch(e){

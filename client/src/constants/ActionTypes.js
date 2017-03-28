@@ -2,7 +2,7 @@ export const LOAD_MEMOS = 'LOAD_MEMOS';
 
 export const LOADING_MEMOS = 'LOADING_MEMOS';
 
-export const SAVEING_MEMOS = 'SAVEING_MEMOS';
+export const SAVING_MEMOS = 'SAVING_MEMOS';
 
 export const SAVE_MEMOS = 'SAVE_MEMOS';
 

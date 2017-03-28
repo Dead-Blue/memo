@@ -1,7 +1,7 @@
 import {
     SUCCESS_SAVE_MEMOS,
     LOADING_MEMOS,
-    SAVEING_MEMOS,
+    SAVING_MEMOS,
     FAIL_SAVE_MEMOS,
     SUCCESS_LOAD_MEMOS,
     FAIL_LOAD_MEMOS,
@@ -20,7 +20,7 @@ const initMemoState = {
     saving:false,
     memos:[],
     filter:FILTER_ALL,
-    }
+}
 const memos = (state=initMemoState,action)=>{
     switch (action.type){
         case LOADING_MEMOS:
@@ -36,7 +36,7 @@ const memos = (state=initMemoState,action)=>{
             }
          case FAIL_LOAD_MEMOS:
             return {...state,loading:false}
-        case SAVEING_MEMOS:
+        case SAVING_MEMOS:
             return {...state,saving:true}
         case SUCCESS_SAVE_MEMOS:
             return {
@@ -164,16 +164,10 @@ const memos = (state=initMemoState,action)=>{
             return{
                 ...state,
                 memos:state.memos.map(x=>{
-                    if(!!x){
                         return{
                             ...x,
                             show:true
                         }
-                    }
-                    return {
-                        ...x,
-                        show:false
-                    };
                 }),
                 filter:FILTER_ALL
             }

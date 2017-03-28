@@ -1,6 +1,6 @@
 # 一个基于React的备忘录程序 
 
-[![Build Status](https://travis-ci.org/Dead-Blue/memo.svg?branch=master)](https://travis-ci.org/Dead-Blue/memo)
+[![Build Status](https://travis-ci.org/Dead-Blue/memo.svg?branch=master)](https://travis-ci.org/Dead-Blue/memo) [![codecov](https://codecov.io/gh/Dead-Blue/memo/branch/master/graph/badge.svg)](https://codecov.io/gh/Dead-Blue/memo)
 
 ## 简介
 
