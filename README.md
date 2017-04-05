@@ -16,21 +16,21 @@
 
 1. 基于React,Redux,React-Router框架,使用Create-React-App构建.
 
-2. 基于commander的脚手架功能(用于快速生成component).
+1. 基于commander的脚手架功能(用于快速生成component).
 
-3. 基于Redux-Saga的Action管理(待完成).
+1. 基于Redux-Saga的Action管理.
 
-4. 基于Node.js,Koa2,MongoDB的服务端（Or graphQL？）.
+1. 基于Node.js,Koa2,MongoDB的服务端（目前已集成egg.js）.
 
-5. 基于Redux的服务端渲染(待完成).
+1. 基于Redux的服务端渲染(待完成).
 
-6. Progressive Web App(待完成).
+1. Progressive Web App(待完成).
 
-7. 覆盖率高于70%的单元测试(待完成).
+1. 覆盖率高于70%的单元测试(待完成).
 
-8. 集成持续构建
+1. 集成持续构建
 
-9. 进一步优化，技术融合替换(待完成).
+1. 进一步优化，技术融合(待完成).
 
 
 
