@@ -3,7 +3,7 @@ import {Provider} from 'react-redux'
 import routes from '../routes'
 import { Router} from 'react-router'
 import '../../public/semantic/dist/semantic.css'
-
+/* istanbul ignore next */
 const Root = ({store,history}) =>(
     <Provider store={store}>
             <Router history={history} routes={routes} />

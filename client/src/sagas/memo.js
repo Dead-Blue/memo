@@ -11,7 +11,7 @@ import {
     LOAD_MEMOS
 } from '../constants/ActionTypes'
 
-function* saveMemosToLocalStorage(action){
+export function* saveMemosToLocalStorage(action){
     try{
         yield put({type:SAVING_MEMOS});
         yield call(saveLocalStorage,"memos",action.payload.memos);
@@ -21,7 +21,7 @@ function* saveMemosToLocalStorage(action){
     }
 }
 
-function* loadMemosFromLocalStorage(){
+export function* loadMemosFromLocalStorage(){
     try{
         yield put({type:LOADING_MEMOS});
         let memos=yield call(loadLocalStorage,"memos");
@@ -31,7 +31,7 @@ function* loadMemosFromLocalStorage(){
         yield put({type:FAIL_LOAD_MEMOS});
     }
 }
-
+/* istanbul ignore next */
 function* watchSaveMemos(){
     yield takeLatest(SAVE_MEMOS,saveMemosToLocalStorage);
 }

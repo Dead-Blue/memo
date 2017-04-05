@@ -80,9 +80,6 @@ class MemoDetail extends Component {
                                 </Grid.Column>
                             </Grid.Row>
                         </Grid>
-                            
-                            
-       
                     </Card.Content>
                     <Card.Content>
                             <TextArea className="memo-detail-remarks" maxLength="10000" placeholder='备注(可选)' value={this.state.remark} onChange={this.handleRemarkChange} />
