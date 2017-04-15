@@ -25,6 +25,7 @@ module.exports = app => {
         ctx.validate(createRule);
       } catch (errors) {
         ctx.body = errors;
+        ctx.status = 400;
         return;
       }
       const memoToSave = ctx.request.body.memos.map(memo => {
@@ -32,26 +33,14 @@ module.exports = app => {
           isUploaded: true,
         });
       });
-      try {
-        yield ctx.model.memo.remove({});
-        ctx.body = yield ctx.model.memo.create(memoToSave).then(memos => memos);
-        ctx.status = 201;
-      } catch (errors) {
-        ctx.body = errors;
-        return;
-      }
+      yield ctx.model.memo.remove({});
+      ctx.body = yield ctx.model.memo.create(memoToSave).then(memos => memos);
+      ctx.status = 201;
     }
 
     * getMemoList() {
       const { ctx } = this;
-      let memos;
-      try {
-        memos = yield ctx.model.memo.find({}).then(memos => memos);
-      } catch (errors) {
-        ctx.body = errors;
-        return;
-      }
-
+      const memos = yield ctx.model.memo.find({}).then(memos => memos);
       ctx.body = memos;
       ctx.status = 200;
     }
