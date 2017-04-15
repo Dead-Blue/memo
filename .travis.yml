@@ -8,6 +8,8 @@ cache:
     - client/node_modules
 install:
   - npm i npminstall && npminstall
+services:
+  - mongodb
 before_script:
   - npm install 
   - cd client

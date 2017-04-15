@@ -4,7 +4,9 @@
   "description": "一个基于react的备忘录程序-客户端",
   "private": true,
   "dependencies": {
-    "egg": "^1.0.0"
+    "egg": "^1.0.0",
+    "egg-mongoose": "^1.1.1",
+    "egg-validate": "^1.0.0"
   },
   "devDependencies": {
     "autod": "^2.7.1",
@@ -22,7 +24,7 @@
   },
   "scripts": {
     "start": "concurrently \"npm run dev\" \"npm run client\"",
-    "client":"node start-client.js",
+    "client": "node start-client.js",
     "server": "node index.js",
     "dev": "egg-bin dev",
     "test": "npm run lint -- --fix && npm run test-local",
