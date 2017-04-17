@@ -6,7 +6,7 @@ module.exports = appInfo => {
   // should change to your own
   config.keys = appInfo.name + '_1490616285321_8280';
   config.mongoose = {
-    url: 'mongodb://localhost/memo',
+    url: 'mongodb://localhost/memoTest',
     options: {},
   };
   config.security = {
@@ -17,4 +17,3 @@ module.exports = appInfo => {
   };
   return config;
 };
-

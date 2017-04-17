@@ -8,6 +8,7 @@ describe('测试memos reducer', () => {
         ).toEqual({
             loading: false,
             saving: false,
+            errors:false,
             memos: [],
             filter: types.FILTER_ALL,
         })
@@ -33,6 +34,7 @@ describe('测试memos reducer', () => {
         expect(memos({
             loading: false,
             saving: false,
+            errors:false,
             memos: [],
             filter: types.FILTER_ALL,
         },{
@@ -59,6 +61,7 @@ describe('测试memos reducer', () => {
         })).toEqual({
             loading: false,
             saving: false,
+            errors:false,
             memos: [{
                     title:"TEST",
                     id:0,
@@ -84,6 +87,7 @@ describe('测试memos reducer', () => {
         expect(memos({
             loading: true,
             saving: false,
+            errors:false,
             memos: [],
             filter: types.FILTER_ALL,
         },{
@@ -91,23 +95,46 @@ describe('测试memos reducer', () => {
         })).toEqual({
             loading: false,
             saving: false,
+            errors:true,
             memos: [],
             filter: types.FILTER_ALL,
-        })
+        })   
+    })
 
+    it('应当正确处理 SUCCESS_UPLOAD_MEMOS',() => {
         expect(memos({
             loading: false,
-            saving: false,
+            saving: true,
+            errors:false,
             memos: [],
             filter: types.FILTER_ALL,
         },{
-            type:types.FAIL_LOAD_MEMOS,
+            type:types.SUCCESS_UPLOAD_MEMOS,
         })).toEqual({
             loading: false,
             saving: false,
+            errors:false,
             memos: [],
             filter: types.FILTER_ALL,
-        })
+        })   
+    })
+
+    it('应当正确处理 FAIL_UPLOAD_MEMOS',() => {
+        expect(memos({
+            loading: false,
+            saving: true,
+            errors:false,
+            memos: [],
+            filter: types.FILTER_ALL,
+        },{
+            type:types.FAIL_UPLOAD_MEMOS,
+        })).toEqual({
+            loading: false,
+            saving: false,
+            errors:true,
+            memos: [],
+            filter: types.FILTER_ALL,
+        })   
     })
 
     it('应当正确处理 SAVING_MEMOS',() => {
@@ -130,6 +157,7 @@ describe('测试memos reducer', () => {
         expect(memos({
             loading: false,
             saving: true,
+            errors:false,
             memos: [],
             filter: types.FILTER_ALL,
         },{
@@ -137,6 +165,7 @@ describe('测试memos reducer', () => {
         })).toEqual({
             loading: false,
             saving: false,
+            errors:false,
             memos: [],
             filter: types.FILTER_ALL,
         })
@@ -146,6 +175,7 @@ describe('测试memos reducer', () => {
         expect(memos({
             loading: false,
             saving: true,
+            errors: false,
             memos: [],
             filter: types.FILTER_ALL,
         },{
@@ -153,6 +183,7 @@ describe('测试memos reducer', () => {
         })).toEqual({
             loading: false,
             saving: false,
+            errors: true,
             memos: [],
             filter: types.FILTER_ALL,
         })

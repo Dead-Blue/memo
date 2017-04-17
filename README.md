@@ -1,14 +1,10 @@
-# 一个基于React的备忘录程序 
+# 一个基于React的备忘录程序
 
 [![Build Status](https://travis-ci.org/Dead-Blue/memo.svg?branch=master)](https://travis-ci.org/Dead-Blue/memo) [![codecov](https://codecov.io/gh/Dead-Blue/memo/branch/master/graph/badge.svg)](https://codecov.io/gh/Dead-Blue/memo)
 
 ## 简介
 
 一个基于React的备忘录程序，整合React技术栈。
-
-## 注意！！
-
-**项目构建中，部分功能暂时还未实现，目前开发在dev branch**
 
 ## 开发路线
 
@@ -26,11 +22,8 @@
 
 1. Progressive Web App(待完成).
 
-1. 覆盖率高于70%的单元测试(待完成).
+1. 覆盖率高于70%的单元测试.
 
 1. 集成持续构建
 
 1. 进一步优化，技术融合(待完成).
-
-
-

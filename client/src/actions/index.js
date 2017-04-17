@@ -21,3 +21,7 @@ export const filterCompleted = ()=>({type:types.FILTER_COMPLETED})
 export const filterUncompleted = ()=>({type:types.FILTER_UNCOMPLETED})
 
 export const filterAll = ()=>({type:types.FILTER_ALL})
+
+export const fetchMemos = ()=>({ type:types.FETCH_MEMOS})
+
+export const uploadMemos = (memos)=> ({type:types.UPLOAD_MEMOS,payload:{memos:memos}})

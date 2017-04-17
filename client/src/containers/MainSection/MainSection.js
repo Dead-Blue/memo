@@ -4,6 +4,7 @@ import MemoCard from '../MemoCard/MemoCard'
 import {    
     Dimmer,
     Loader,
+    Message,
 } from 'semantic-ui-react';
 class MainSection extends Component {
     
@@ -14,7 +15,7 @@ class MainSection extends Component {
 
     render(){
         const {memos,actions} = this.props;
-        const {loading,saving} = memos;
+        const {loading,saving,errors} = memos;
         let dimmerActive=false;
         let loadingText="loading";
         if(loading||saving){
@@ -30,9 +31,19 @@ class MainSection extends Component {
         }
         return (
             <section  className="memo-mainsection">
-                <Dimmer active={dimmerActive}>
+                <Dimmer active={dimmerActive} page>
                     <Loader size='medium'>{loadingText}</Loader>
                 </Dimmer>
+                <Message
+                    error
+                    header='出现了一些错误'
+                    hidden={!errors}
+                    list={[
+                    '请检查你的网络状态后重试',
+                    '请检查你的输入后重试',
+                    '服务器可能出了一些问题，请稍后重试',
+                    ]}
+                />
                 <MemoCard {...memos} actions={actions}/>
             </section>
         )

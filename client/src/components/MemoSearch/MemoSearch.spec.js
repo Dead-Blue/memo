@@ -26,5 +26,13 @@ describe('components',()=>{
             const {output} = setup()
             expect(output.type).toBe(Input)
         })
+
+        it('输入变化时应该更新value并且调用onSearch', () => {
+            const { output, renderer, props } = setup()
+            output.props.onChange({ target: { value: '搜索' } })
+            const updated = renderer.getRenderOutput()
+            expect(updated.props.value).toEqual('搜索')
+            expect(props.onSearch).toBeCalledWith('搜索')
+        })
     })
 })
