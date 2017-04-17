@@ -26,6 +26,18 @@ class MemoCard extends Component {
         saveMemos(memos);
     }
 
+    handleFetchMemos=()=>{
+        const {actions}=this.props;
+        const {fetchMemos} = actions;
+        fetchMemos();
+    }
+    
+    handleUploadMemos=()=>{
+        const {memos,actions}=this.props;
+        const {uploadMemos} = actions;
+        uploadMemos(memos);
+    }
+
     render(){
         const {memos,actions} = this.props;
         const {addMemo,searchMemo,filterCompleted,filterUncompleted,filterAll,...rest}=actions;
@@ -57,7 +69,12 @@ class MemoCard extends Component {
                             <Button color='green' onClick={filterAll}>全部</Button>
                     </Button.Group>
                     <Divider />
-                    <Button color='orange' fluid onClick={this.handleSaveMemos}>保存备忘录</Button>
+                    <Button.Group widths='3'>
+                        <Button color='orange' onClick={this.handleSaveMemos}>保存备忘录</Button>
+                        <Button color='blue' onClick={this.handleFetchMemos}>载入备忘录</Button>
+                        <Button color='green' onClick={this.handleUploadMemos}>上传备忘录</Button>
+                    </Button.Group>
+                   
                 </Card.Content>
             </Card>
         )

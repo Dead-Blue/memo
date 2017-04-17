@@ -5,6 +5,8 @@ import {
     FAIL_SAVE_MEMOS,
     SUCCESS_LOAD_MEMOS,
     FAIL_LOAD_MEMOS,
+    SUCCESS_UPLOAD_MEMOS,
+    FAIL_UPLOAD_MEMOS,
     ADD_MEMO,
     TOGGLE_COMPLETE,
     DELETE_MEMO,
@@ -18,6 +20,7 @@ import {
 const initMemoState = {
     loading:false,
     saving:false,
+    errors:false,
     memos:[],
     filter:FILTER_ALL,
 }
@@ -28,23 +31,29 @@ const memos = (state=initMemoState,action)=>{
                 ...state,
                 loading:true
             }
+        case SUCCESS_UPLOAD_MEMOS:
+            return {...state,saving:false,errors:false}
+         case FAIL_UPLOAD_MEMOS:
+            return {...state,saving:false,errors:true}
         case SUCCESS_LOAD_MEMOS:
             return {
                 ...state,
                 memos:action.payload.memos,
-                loading:false
+                loading:false,
+                errors:false,
             }
          case FAIL_LOAD_MEMOS:
-            return {...state,loading:false}
+            return {...state,loading:false,errors:true}
         case SAVING_MEMOS:
             return {...state,saving:true}
         case SUCCESS_SAVE_MEMOS:
             return {
                 ...state,
-                saving:false
+                saving:false,
+                errors:false,
             }
         case FAIL_SAVE_MEMOS:
-            return {...state,saving:false}
+            return {...state,saving:false,errors:true}
         case ADD_MEMO:
             return {
                 ...state,

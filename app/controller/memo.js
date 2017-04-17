@@ -17,7 +17,6 @@ module.exports = app => {
             priority: { type: 'string' },
             remark: { type: 'string', allowEmpty: true },
             show: { type: 'boolean' },
-            isUploaded: { type: 'boolean' },
           },
         },
       };
@@ -28,11 +27,7 @@ module.exports = app => {
         ctx.status = 400;
         return;
       }
-      const memoToSave = ctx.request.body.memos.map(memo => {
-        return Object.assign(memo, {
-          isUploaded: true,
-        });
-      });
+      const memoToSave = ctx.request.body.memos;
       yield ctx.model.memo.remove({});
       ctx.body = yield ctx.model.memo.create(memoToSave).then(memos => memos);
       ctx.status = 201;

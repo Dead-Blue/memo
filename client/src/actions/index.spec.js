@@ -110,5 +110,29 @@ describe('memos actions',()=>{
             type:types.FILTER_ALL
         })
     })
+
+    it('loadMemos 应当创建 FETCH_MEMOS action',()=>{
+        expect(actions.fetchMemos()).toEqual({
+            type:types.FETCH_MEMOS
+        })
+    })
+
+    it('uploadMemos 应当创建 UPLOAD_MEMOS action',()=>{
+        const mockMemos = [{
+                title:"TEST",
+                id:0,
+                completed:false,
+                list:"默认",
+                priority:"none",
+                remark:"",
+                show:true
+        }]
+        expect(actions.uploadMemos(mockMemos)).toEqual({
+            type:types.UPLOAD_MEMOS,
+            payload:{
+                memos:mockMemos
+            }
+        })
+    })
 })
 

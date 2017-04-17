@@ -6,7 +6,7 @@ const saveLocalStorage=function (key,value){
              setTimeout(()=>{
                 localStorage.setItem(key,valueToSave);
                 resolve();
-            },2000)
+            },0)
         })
     } else if(typeof value === "string"||typeof value==="number"||typeof value==="boolean") {
         // localStorage.setItem(key,value);
@@ -14,7 +14,7 @@ const saveLocalStorage=function (key,value){
              setTimeout(()=>{
                 localStorage.setItem(key,value);
                 resolve();
-            },2000)
+            },0)
         })
     } else {
         throw new Error("数据存储类型必须是object,number,string,boolean的一种")
@@ -29,7 +29,7 @@ const loadLocalStorage = function(key){
         setTimeout(()=>{
             var value = localStorage.getItem(key);
             resolve(JSON.parse(value));
-        },2000)
+        },0)
     })
 }
 

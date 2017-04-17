@@ -9,7 +9,6 @@ describe('test/app/controller/memo.test.js', () => {
     priority: 'none',
     remark: '',
     show: true,
-    isUploaded: true,
   }];
   let memo;
   before(function* () {

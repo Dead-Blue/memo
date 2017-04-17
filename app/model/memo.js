@@ -8,7 +8,6 @@ module.exports = mongoose => {
     priority: { type: String },
     remark: { type: String },
     show: { type: Boolean },
-    isUploaded: { type: Boolean },
   });
 
   return mongoose.model('Memo', MemoSchema);
